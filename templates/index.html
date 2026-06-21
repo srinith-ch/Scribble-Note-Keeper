@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scribble - Premium Note Keeper</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Background abstract shapes for glassmorphism backdrop -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <div class="app-container">
+        <!-- Sidebar or Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-feather-pointed logo-icon"></i>
+                <span class="logo-text">Scribble</span>
+            </div>
+            <div class="search-bar-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search notes...">
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Note Creation Area -->
+            <section class="creation-section">
+                <div class="note-creator-card" id="note-creator">
+                    <form id="note-form">
+                        <textarea id="note-textarea" placeholder="Take a note..." rows="1" required></textarea>
+                        
+                        <!-- Expanding controls -->
+                        <div class="creator-actions" id="creator-actions">
+                            <div class="color-picker">
+                                <button type="button" class="color-btn active" data-color="#ffffff" style="background-color: #ffffff;" title="Default"></button>
+                                <button type="button" class="color-btn" data-color="#f8d7da" style="background-color: #f8d7da;" title="Rose"></button>
+                                <button type="button" class="color-btn" data-color="#d1ecf1" style="background-color: #d1ecf1;" title="Cyan"></button>
+                                <button type="button" class="color-btn" data-color="#d4edda" style="background-color: #d4edda;" title="Emerald"></button>
+                                <button type="button" class="color-btn" data-color="#fff3cd" style="background-color: #fff3cd;" title="Amber"></button>
+                                <button type="button" class="color-btn" data-color="#e2d9f3" style="background-color: #e2d9f3;" title="Violet"></button>
+                            </div>
+                            <button type="submit" class="submit-note-btn" id="submit-btn">
+                                <i class="fa-solid fa-plus"></i> Add Note
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Notes List Area -->
+            <section class="notes-section">
+                <div class="notes-grid" id="notes-grid">
+                    <!-- Dynamic Notes Loaded Here -->
+                    <div class="loading-state" id="loading-state">
+                        <i class="fa-solid fa-circle-notch fa-spin spinner"></i>
+                        <p>Loading your notes...</p>
+                    </div>
+                </div>
+                
+                <div class="empty-state hidden" id="empty-state">
+                    <i class="fa-regular fa-note-sticky empty-icon"></i>
+                    <h3>No notes yet</h3>
+                    <p>Tap above to write your first note!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="/static/app.js"></script>
+</body>
+</html>
